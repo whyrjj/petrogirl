@@ -1,32 +1,28 @@
-Camel Router WAR Project with Web Console and REST Support
-==========================================================
+本项目的结构为：
 
-This project bundles the Camel Web Console, REST API, and some
-sample routes as a WAR. You can build the WAR by running
+petrogirl-parent:
+    所有工程的父工程
 
-mvn install
+petrogirl-common:
+    所有公共的实体、以及对应的数据访问和
 
-You can then run the project by dropping the WAR into your 
-favorite web container or just run
+petrogirl-web:
+    前端网站展示，后期打算做成MQ的消息处理端，当后端有数据变化时，发送消息，这里接收到消息，就制作静态页面，提高性能
 
-mvn jetty:run
+petrogirl-admin:
+    网端及内部办公管理平台，管理网站的数据
 
-to start up and deploy to Jetty.
+本系统所使用的有：
+
+maven3
+springMVC
+JPA(Hibernate)
+shiro
+dozer
+flyWay
+redis
+mysql
+ehcache
 
 
-Web Console
-===========
-
-You can view the Web Console by pointing your browser to http://localhost:8080/
-
-You should be able to do things like
-
-    * browse the available endpoints
-    * browse the messages on an endpoint if it is a BrowsableEndpoint
-    * send a message to an endpoint
-    * create new endpoints
-
-For more help see the Apache Camel documentation
-
-    http://camel.apache.org/
     
