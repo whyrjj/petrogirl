@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/petrogirl-admin/petrogirl-admin.iml" filepath="$PROJECT_DIR$/petrogirl-admin/petrogirl-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/petrogirl-common/petrogirl-common.iml" filepath="$PROJECT_DIR$/petrogirl-common/petrogirl-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/petrogirl-parent.iml" filepath="$PROJECT_DIR$/petrogirl-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/petrogirl-web/petrogirl-web.iml" filepath="$PROJECT_DIR$/petrogirl-web/petrogirl-web.iml" />
+    </modules>
+  </component>
+</project>
