@@ -72,9 +72,11 @@ public interface DAO<T> {
 	 */
 	public void delete(Serializable... entityids);
 
+	public Long getCount(String wherejpql, Object[] queryParams);
+
 	/**
 	 * 获取实体
-	 * 
+	 *
 	 * @param <T>
 	 *            实体类
 	 * @param entityId
@@ -83,11 +85,9 @@ public interface DAO<T> {
 	 */
 	public T find(Serializable entityId);
 
-	public Long getCount(String wherejpql, Object[] queryParams);
-
 	/**
 	 * 获取分页数据 ,如果要获取所有数据,firstindex，maxresult这俩参数请都传-1
-	 * 
+	 *
 	 * @param <T>
 	 * @param firstindex
 	 *            开始索引
@@ -108,7 +108,7 @@ public interface DAO<T> {
 	public QueryResult<T> getScrollData();
 
 	public int delete(String wherejpql, Object[] queryParams);
-	
+
 	public List<T> getByJpql(String wherejpql, Object[] queryParams);
-	
+
 }

@@ -18,7 +18,7 @@
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 <script type="text/javascript">
 	$(function() {
-		if ($('#newPath').value() == "") {
+		if ($('#newPath').val() == "") {
 			$("#sure").attr({
 				disabled : "true"
 			});

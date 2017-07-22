@@ -56,7 +56,7 @@
 										<td>${note.lang }</td>
 										<td><fmt:formatDate value="${note.date}"  type="both"  pattern="yyyy-MM-dd"/></td>
 										<td>
-											<a type="button" href="${ctx }${adminPath }/news/update${urlSuffix}?id=${note.id }"  class="am-btn am-btn-primary am-btn-sm">
+											<a type="button" href="${ctx }${adminPath }/news/add${urlSuffix}?id=${note.id }"  class="am-btn am-btn-primary am-btn-sm">
 												修改
 											</a>
 											 　　

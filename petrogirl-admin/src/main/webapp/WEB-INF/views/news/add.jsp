@@ -4,18 +4,20 @@
 <html>
 <head>
 <title>
-	添加
 	<c:choose>
 		<c:when test="${news.id == null}">
-
+			添加
 		</c:when>
+		<c:otherwise>
+			修改
+		</c:otherwise>
 	</c:choose>
 	新闻</title>
 
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 <script type="text/javascript">
 	$(function() {
-		if ($('#newImg').html() == "") {
+		if ($('#newPath').val() == "") {
 			$("#sure").attr({
 				disabled : "true"
 			});
@@ -42,7 +44,16 @@
 		<div class="admin-content">
 
 			<div class="am-cf am-padding">
-		      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">新闻</strong> / <small>添加</small>
+		      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">新闻</strong> / <small>
+				  <c:choose>
+					  <c:when test="${news.id == null}">
+						  添加
+					  </c:when>
+					  <c:otherwise>
+						  修改
+					  </c:otherwise>
+				  </c:choose>
+			  </small>
 				</div>
 		    </div>
 			
@@ -52,10 +63,11 @@
 		      	
 		      		<form:hidden path="imgPath" id="newPath" />
 		      		<form:hidden path="category.id" />
+					<form:hidden path="id"/>
 					<table class="am-table am-table-striped table-main am-text-nowrap">
 						<tr>
 							<td>新闻类别</td>
-							<td>${category.title}</td>
+							<td>${news.category.title}</td>
 						</tr>
 						<tr>
 							<td>语言</td>
@@ -72,10 +84,17 @@
 						
 						<tr>
 							<td colspan="2">
-								<img id="newImg" src="${ctxStatic }/assets/images/industry_bg.png" class="am-img-responsive am-img-thumbnail" style="height: 95px;width: 150px;"/>
+								<c:choose>
+									<c:when test="${news.imgPath != null}">
+										<img id="newImg" src="${downloadDomain }${news.imgPath}" class="am-img-responsive am-img-thumbnail" width="150px" height="95px"/>150x95
+									</c:when>
+									<c:otherwise>
+										<img id="newImg" src="${ctxStatic }/assets/images/industry_bg.png" class="am-img-responsive am-img-thumbnail" width="150px" height="95px"/>150x95
+									</c:otherwise>
+								</c:choose>
 							</td>
 						</tr>
-						
+
 						<tr>
 							<td>标题</td>
 							<td>
@@ -96,7 +115,16 @@
 					</table>
 				   </form:form>
 		        <hr />
-		        <p>注：语言添加</p>
+		        <p>注：语言
+					<c:choose>
+						<c:when test="${news.id == null}">
+							添加
+						</c:when>
+						<c:otherwise>
+							修改
+						</c:otherwise>
+					</c:choose>
+				</p>
 	      		</div>
 	    	</div>
 		</div>

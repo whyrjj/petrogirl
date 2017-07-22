@@ -35,12 +35,18 @@ public class NewsController {
 
     @RequestMapping(value = {"/add"}, method = RequestMethod.GET)
     @RequiresPermissions(value = "news:add")
-    public String addUI(@ModelAttribute("news") News news, Model model) {
+    public String addUI(News news, Model model) {
 
 
         model.addAttribute("languages", langService.getScrollData().getResultlist());
-        NewsCategory category = newsCategoryService.find(news.getCategory().getId());
-        model.addAttribute("category", category);
+
+        if(news.getId() != null) {
+            news = newsService.find(news.getId());
+        } else {
+            NewsCategory category = newsCategoryService.find(news.getCategory().getId());
+            news.setCategory(category);
+        }
+        model.addAttribute("news", news);
 
 
         return "news/add";
@@ -54,7 +60,12 @@ public class NewsController {
         NewsCategory category = newsCategoryService.find(news.getCategory().getId());
         news.setDate(new Date());
         news.setLang(category.getLang());
-        newsService.save(news);
+
+        if(news.getId() != null) {
+            newsService.update(news);
+        } else {
+            newsService.save(news);
+        }
 
         return "redirect:" + Global.getAdminPath() + "/news/list" + Global.getUrlSuffix() + "?queryBean.category.id=" + category.getId();
     }
