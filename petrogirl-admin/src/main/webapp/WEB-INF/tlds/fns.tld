@@ -68,8 +68,8 @@
     <description>获取字典值</description>
     <name>getDictValue</name>
     <function-class>com.petrogirl.petrol.common.utils.DictUtils</function-class>
-    <function-signature>java.lang.String getDictValue(java.lang.String, java.lang.String, java.lang.String)</function-signature>
-    <example>${fns:getDictValue(label, type, defaultValue)}</example>  
+    <function-signature>java.lang.String getDictValue(java.lang.String, java.lang.String)</function-signature>
+    <example>${fns:getDictValue(type, defaultValue)}</example>  
   </function>
   
   <function>

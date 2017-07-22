@@ -3,7 +3,14 @@
 <!doctype html>
 <html>
 <head>
-<title>添加新闻</title>
+<title>
+	添加
+	<c:choose>
+		<c:when test="${news.id == null}">
+
+		</c:when>
+	</c:choose>
+	新闻</title>
 
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 <script type="text/javascript">

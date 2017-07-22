@@ -10,3 +10,4 @@
 <c:set var="urlSuffix" value="${fns:getUrlSuffix()}"/>
 <c:set var="adminPath" value="${fns:getAdminPath()}"/>
 <c:set var="imgPath" value="${fns:getAdminPath()}"/>
+<c:set var="downloadDomain" value="${fns:getDictValue('downloadDomain', 'http://www.petrogirl.com:8080')}"/>

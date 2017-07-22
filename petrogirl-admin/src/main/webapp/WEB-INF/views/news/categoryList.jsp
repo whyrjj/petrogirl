@@ -53,6 +53,9 @@
 											<a type="button" href="${ctx }${adminPath }/news/list${urlSuffix}?queryBean.category.id=${category.id }"  class="am-btn am-btn-primary am-btn-sm">
 												详细
 											</a>
+											<a type="button" href="${ctx }${adminPath }/news/category/update${urlSuffix}?id=${category.id }"  class="am-btn am-btn-primary am-btn-sm">
+												修改
+											</a>
 											<a type="button" href="${ctx }${adminPath }/news/add${urlSuffix}?category.id=${category.id }"  class="am-btn am-btn-primary am-btn-sm">
 												添加新闻
 											</a>

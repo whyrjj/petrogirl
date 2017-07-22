@@ -3,12 +3,22 @@
 <!doctype html>
 <html>
 <head>
-<title>添加新闻类别</title>
+<title>
+	<c:choose>
+		<c:when test="${category.id == null}">
+			添加
+		</c:when>
+		<c:otherwise>
+			修改
+		</c:otherwise>
+	</c:choose>
+	新闻类别
+</title>
 
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 <script type="text/javascript">
 	$(function() {
-		if ($('#newImg').html() == "") {
+		if ($('#newPath').value() == "") {
 			$("#sure").attr({
 				disabled : "true"
 			});
@@ -37,7 +47,16 @@
 		<div class="admin-content">
 
 			<div class="am-cf am-padding">
-		      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">新闻</strong> / <small>类型添加</small>
+		      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">新闻</strong> / <small>类型
+				  <c:choose>
+					  <c:when test="${category.id == null}">
+						  添加
+					  </c:when>
+					  <c:otherwise>
+						  修改
+					  </c:otherwise>
+				  </c:choose>
+			  </small>
 				</div>
 		    </div>
 			
@@ -46,6 +65,7 @@
 		      	<form:form action="${ctx }${adminPath }/news/category/add${urlSuffix}" method="post" modelAttribute="category" cssClass="am-form">
 		      	
 		      		<form:hidden path="imgPath" id="newPath" />
+					<form:hidden path="id"/>
 					<table class="am-table am-table-striped table-main am-text-nowrap">
 						<tr>
 							<td>语言</td>
@@ -64,7 +84,15 @@
 						
 						<tr>
 							<td colspan="2">
-								<img id="newImg" src="${ctxStatic }/assets/images/industry_bg.png" class="am-img-responsive am-img-thumbnail"/>
+								<c:choose>
+									<c:when test="${category.imgPath != null}">
+										<img id="newImg" src="${downloadDomain }${category.imgPath}" class="am-img-responsive am-img-thumbnail" width="150px" height="95px"/>150x95
+									</c:when>
+									<c:otherwise>
+										<img id="newImg" src="${ctxStatic }/assets/images/industry_bg.png" class="am-img-responsive am-img-thumbnail" width="150px" height="95px"/>150x95
+									</c:otherwise>
+								</c:choose>
+
 							</td>
 						</tr>
 						
@@ -88,7 +116,16 @@
 					</table>
 				   </form:form>
 		        <hr />
-		        <p>注：新闻类型添加</p>
+		        <p>注：新闻类型
+					<c:choose>
+						<c:when test="${category.id == null}">
+							添加
+						</c:when>
+						<c:otherwise>
+							修改
+						</c:otherwise>
+					</c:choose>
+				</p>
 	      		</div>
 	    	</div>
 		</div>
